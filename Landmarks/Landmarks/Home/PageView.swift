@@ -18,7 +18,10 @@ struct PageView<Page: View>: View {
         }
     }
     var body: some View {
-        PageViewController(currentPage: $currentPage, controllers: viewControllers)
+        ZStack(alignment: .bottomTrailing) {
+            PageControl(numberOfPages: currentPage, currentPage: $currentPage)
+            PageViewController(controllers: viewControllers, currentPage: $currentPage)
+        }
     }
     
    
